@@ -43,14 +43,17 @@ public class Booking {
         this.numberOfNights = numberOfNights;
     }
 
-    /// method to display Booking information
-    public void displayBookingInformation(){
-        System.out.println("Guest:" + guest.getFirstname() + " " + guest.getLastname());
-        System.out.println("Phone:" + guest.getPhoneNumber());
-        System.out.println("Room:" + room.getRoomNumber());
-        System.out.println("Price Per Night:" + room.getPricePerNight());
-        System.out.println("Nights:" + numberOfNights);
-        System.out.println("Total Price:" +(numberOfNights*room.getPricePerNight()) + " KZT");
+    /// Method to calculate total cost
+    public int calculateTotalCost(){
+        return this.numberOfNights * room.getPricePerNight();
+    }
+    /// Overriding toString()
+    public String toString(){
+        return "Booking Details: \n" +
+                "Guest: " + guest + "\n" +
+                "Room: " + room + "\n" +
+                "Number of Nights: " + numberOfNights + "\n" +
+                "Total Cost: " + calculateTotalCost();
     }
 
 }

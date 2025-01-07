@@ -9,21 +9,18 @@ public class Room {
         this.roomNumber = roomNumber;
         this.pricePerNight = pricePerNight;
     }
-
     /// attributes of class
     private int roomNumber;
     private int pricePerNight;
 
-    //getters
+    ///getters
     public int getRoomNumber() {
         return this.roomNumber;
     }
-
     public int getPricePerNight() {
         return this.pricePerNight;
     }
-
-    //setters
+    ///setters
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
@@ -31,10 +28,20 @@ public class Room {
     public void setPricePerNight(int pricePerNight) {
         this.pricePerNight = pricePerNight;
     }
-    /// method to display room information
-    public void displayRoomInformation(){
-    System.out.println("Room number:" + roomNumber);
-    System.out.println("Price Per Night:" + pricePerNight + " KZT");
-    }
 
+    /// Overriding toString()
+    public String toString(){
+        return "Room Number: " + roomNumber + " , pricePerNight: " + pricePerNight;
+    }
+    /// Overriding equals()
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Room room = (Room) obj;
+        return roomNumber == room.roomNumber && pricePerNight == room.pricePerNight;
+    }
+    /// Overriding hashCode()
+    public int hashCode(){
+        return roomNumber * 31 + pricePerNight;
+    }
 }
